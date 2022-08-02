@@ -9,20 +9,28 @@ namespace UserRegistrationRegex
 {
     internal class Patterns
     {
-        public static string RegexRules = "^[A-Z][a-z]{3,}$"; 
-        public bool validateString(string sample) //this method is used to check whether the input from user match with the regex rules written
-        {
-            return Regex.IsMatch(sample, RegexRules);
-        }
+        public static string NameRule = "^[A-Z][a-z]{3,}$";
         public void validateFName(string FName)//this method is to check if First name is valid or not
         {
-            if(validateString(FName))
+            if (Regex.IsMatch(FName, NameRule))
             {
                 Console.WriteLine("First Name: " + FName);
             }
             else
             {
                 Console.WriteLine("Invalid First Name");
+            }
+        }
+
+        public void validateLName(string LName)//this method is to check if First name is valid or not
+        {
+            if (Regex.IsMatch(LName, NameRule))
+            {
+                Console.WriteLine("Last Name: " + LName);
+            }
+            else
+            {
+                Console.WriteLine("Invalid Last Name");
             }
         }
     }
