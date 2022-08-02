@@ -22,7 +22,7 @@ namespace UserRegistrationRegex
             }
         }
 
-        public void validateLName(string LName)//this method is to check if First name is valid or not
+        public void validateLName(string LName)//this method is to check if Last name is valid or not
         {
             if (Regex.IsMatch(LName, NameRule))
             {
