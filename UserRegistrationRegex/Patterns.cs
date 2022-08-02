@@ -10,6 +10,7 @@ namespace UserRegistrationRegex
     internal class Patterns
     {
         public static string NameRule = "^[A-Z][a-z]{3,}$";
+        public static string EmailRule = "^[a-zA-Z0-9]+([.][a-zA-Z0-9]+)*[@][a-zA-Z0-9]{2,}[.][a-zA-Z]{2,3}([.][a-zA-Z]{2})?$";
         public void validateFName(string FName)//this method is to check if First name is valid or not
         {
             if (Regex.IsMatch(FName, NameRule))
@@ -31,6 +32,17 @@ namespace UserRegistrationRegex
             else
             {
                 Console.WriteLine("Invalid Last Name");
+            }
+        }
+        public void validateEmail(string Email)//this method is to check if Email is valid or not
+        {
+            if (Regex.IsMatch(Email, EmailRule))
+            {
+                Console.WriteLine("Email ID: " + Email);
+            }
+            else
+            {
+                Console.WriteLine("Invalid Email ID");
             }
         }
     }
