@@ -11,6 +11,7 @@ namespace UserRegistrationRegex
     {
         public static string NameRule = "^[A-Z][a-z]{3,}$";
         public static string EmailRule = "^[a-zA-Z0-9]+([.][a-zA-Z0-9]+)*[@][a-zA-Z0-9]{2,}[.][a-zA-Z]{2,3}([.][a-zA-Z]{2})?$";
+        public static string MobileRule = "^[1-9]{2}[ ][0-9]{10}";
         public void validateFName(string FName)//this method is to check if First name is valid or not
         {
             if (Regex.IsMatch(FName, NameRule))
@@ -43,6 +44,17 @@ namespace UserRegistrationRegex
             else
             {
                 Console.WriteLine("Invalid Email ID");
+            }
+        }
+        public void validateMobile(string Mobile)//this method is to check if Mobile no is valid or not
+        {
+            if (Regex.IsMatch(Mobile, MobileRule))
+            {
+                Console.WriteLine("Mobile No: " + Mobile);
+            }
+            else
+            {
+                Console.WriteLine("Invalid Mobile No.");
             }
         }
     }
