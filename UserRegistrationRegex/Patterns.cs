@@ -7,15 +7,18 @@ using System.Threading.Tasks;
 
 namespace UserRegistrationRegex
 {
-    internal class Patterns
+    public class Patterns
     {
         public static string NameRule = "^[A-Z][a-z]{3,}$";
-        public static string EmailRule = "^[a-zA-Z0-9]+([.-+][a-zA-Z0-9]+)*[@][a-zA-Z0-9]{1,}[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3})?$";
+        public static string EmailRule = "^[a-zA-Z0-9]+([.+-_][a-zA-Z0-9]+)*[@][a-zA-Z0-9]{1,}[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3})?$";
+        //public static string EmailRule = "^[a-zA-Z0-9]+([.][a-zA-Z0-9]+)*[@][a-zA-Z0-9]{2,}[.][a-zA-Z]{2,3}([.][a-zA-Z]{2})?$";
         public static string MobileRule = "^[1-9]{2}[ ][0-9]{10}";
         public static string PasswordRule = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&]).{8,}$";
+        public bool FNameCheck, LNameCheck, MobileCheck, PasswordCheck, EmailCheck;
         public void validateFName(string FName)//this method is to check if First name is valid or not
         {
-            if (Regex.IsMatch(FName, NameRule))
+            FNameCheck = Regex.IsMatch(FName, NameRule);
+            if (FNameCheck)
             {
                 Console.WriteLine("First Name: " + FName);
             }
@@ -27,7 +30,8 @@ namespace UserRegistrationRegex
 
         public void validateLName(string LName)//this method is to check if Last name is valid or not
         {
-            if (Regex.IsMatch(LName, NameRule))
+            LNameCheck = Regex.IsMatch(LName, NameRule);
+            if (LNameCheck)
             {
                 Console.WriteLine("Last Name: " + LName);
             }
@@ -38,7 +42,8 @@ namespace UserRegistrationRegex
         }
         public void validateEmail(string Email)//this method is to check if Email is valid or not
         {
-            if (Regex.IsMatch(Email, EmailRule))
+            EmailCheck = Regex.IsMatch(Email, EmailRule);
+            if (EmailCheck)
             {
                 Console.WriteLine("Email ID: " + Email);
             }
@@ -49,7 +54,8 @@ namespace UserRegistrationRegex
         }
         public void validateMobile(string Mobile)//this method is to check if Mobile no is valid or not
         {
-            if (Regex.IsMatch(Mobile, MobileRule))
+            MobileCheck = Regex.IsMatch(Mobile, MobileRule);
+            if (MobileCheck)
             {
                 Console.WriteLine("Mobile No: " + Mobile);
             }
@@ -60,7 +66,8 @@ namespace UserRegistrationRegex
         }
         public void validatePassword(string Password)//this method is to check if Password is valid or not
         {
-            if (Regex.IsMatch(Password, PasswordRule))
+            PasswordCheck = Regex.IsMatch(Password, PasswordRule);
+            if (PasswordCheck)
             {
                 Console.WriteLine("Password: " + Password);
             }
